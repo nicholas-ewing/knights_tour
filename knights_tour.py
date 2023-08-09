@@ -84,7 +84,6 @@ def solve(board: "list[list[str]]", point: tuple, step: int) -> bool:
 
     for move in moves:
         if board[move[0]][move[1]] == BLANK:
-            #board[move[0]][move[1]] = f"{step:0d}"
             board[move[0]][move[1]] = f"{step:0{FORMAT_SIZE}d}"
             if solve(board, move, step+1):
                 return True
