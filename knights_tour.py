@@ -52,7 +52,7 @@ def getKnightMoves(point: tuple):
             
     return valid_positions
 
-def thread_handler(start_point: tuple, lock: multiprocessing.Lock):
+def process_handler(start_point: tuple, lock: multiprocessing.Lock):
     start_time = perf_counter()
     step = 1
 
@@ -99,7 +99,7 @@ def main():
 
     processes = []
     for point in all_points:
-        processes.append(multiprocessing.Process(target=thread_handler, args=(point, lock)))
+        processes.append(multiprocessing.Process(target=process_handler, args=(point, lock)))
 
     for process in processes:
         process.start()
